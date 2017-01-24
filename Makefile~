@@ -1,2 +1,0 @@
-all: main.cpp lodepng.cpp lodepng.h image.h
-	g++ main.cpp lodepng.cpp -o main -std=c++11
