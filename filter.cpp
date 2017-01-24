@@ -2,22 +2,22 @@
 
 
 Filter::Filter() {
-	width = height = 1;
-	kernel = {1.f};
+    width = height = 1;
+    kernel = {1.f};
 }
 
 Filter::Filter(const std::string& filename) {
-	read(filename);
+    read(filename);
 }
 
 void Filter::read(std::string filename) {
-	// todo
+    // TODO: Use ifstream to read the contents of a filter from a file
 }
 
 void Filter::normalize() {
-	// todo	
+    // TODO: Ensure that all elements of the filter add up to 1
 }
 
 const float& Filter::at(int x, int y) const {
-	// todo
+    // TODO: Return a reference to one entry of the filter kernel
 }

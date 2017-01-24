@@ -10,27 +10,30 @@
 
 class Image {
 public:
-	Image();
-	// Construct image by loading it from a file
-	Image(const std::string& filename);
-	// Construct blank image with given size
-	Image(const unsigned& w, const unsigned& h);
+    Image();
 
-	// Read and write image from disk
-	void read(std::string filename);
-	void write(std::string filename) const;
+    // Construct image by loading it from a file
+    Image(const std::string& filename);
 
-	// Returns the location of the (x,y) pixel in memory
-	uint8_t* at(int x, int y);
-	
-	// Convolves this image with a filter and returns a new image
-	Image operator*(const Filter& filter);
+    // Construct blank image with given size
+    Image(const unsigned& w, const unsigned& h);
+
+    // Read and write image from disk
+    void read(std::string filename);
+    void write(std::string filename) const;
+
+    // Returns the location of the (x,y) pixel in memory
+    uint8_t* at(int x, int y);
+
+    // Convolves this image with a filter and returns a new image
+    Image operator*(const Filter& filter);
 
 private:
-	// The width and height of the image
-	unsigned width, height;
-	// Flattened 2d vector of pixel values as sets of 4 unsigned chars (RGBA order).
-	std::vector<uint8_t> data;
+    // The width and height of the image
+    unsigned width, height;
+
+    // Flattened 2d vector of pixel values as sets of 4 unsigned chars (RGBA).
+    std::vector<uint8_t> data;
 };
 
 #endif
