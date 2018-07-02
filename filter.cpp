@@ -11,7 +11,9 @@ Filter::Filter(const std::string& filename) {
 }
 
 void Filter::read(std::string filename) {
-    // TODO: Use ifstream to read the contents of a filter from a file
+    int x, y;
+    std::ifstream mystream(filename);
+    mystream >> x >> y;
 }
 
 void Filter::normalize() {
