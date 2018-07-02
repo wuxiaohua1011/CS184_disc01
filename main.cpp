@@ -42,9 +42,8 @@ int main(int argc, char* argv[]) {
         return 0;
     }
     Image image(argv[1]);
-      cout << "initizliation success" << endl;
     Filter filter(argv[2]);
-
+    cout << "initizliation success" << endl;
     Image filtered = image * filter;
     filtered.write("filtered.png");
 

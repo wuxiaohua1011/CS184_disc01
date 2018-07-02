@@ -11,24 +11,28 @@ Filter::Filter(const std::string& filename) {
 }
 
 void Filter::read(std::string filename) {
-    std::ifstream mystream(filename);
-    mystream >> width >> height;
+    // TODO: Use ifstream to read the contents of a filter from a file
+    std::ifstream infile(filename);
+    infile >> width >> height;
+
     kernel.clear();
-    for (int i = 0; i < width * height; i ++) {
-      float num;
-      mystream >> num;
-      kernel.push_back(num);
+    for (int i = 0; i < width * height; ++i) {
+        float f;
+        infile >> f;
+        kernel.push_back(f);
     }
+
     normalize();
 }
 
 void Filter::normalize() {
-    float total = 0;
-    for(int i = 0; kernel.size(); i ++){
-      total += i;
+    // TODO: Ensure that all elements of the filter add up to 1
+    float sum = 0;
+    for (int i = 0; i < width * height; ++i) {
+        sum += kernel[i];
     }
-    for(int i = 0; i < kernel.size(); i++){
-      kernel[i] = kernel[i]/total;
+    for (int i = 0; i < width * height; ++i) {
+        kernel[i] /= sum;
     }
 }
 
