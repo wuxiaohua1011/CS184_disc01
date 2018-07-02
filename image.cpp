@@ -28,7 +28,7 @@ void Image::read(std::string filename) {
 void Image::write(std::string filename) const {
     // TODO: Write the contents of the Image to a file
     //Encode the image
-    unsigned error = lodepng::encode(filename, image, width, height);
+    unsigned error = lodepng::encode(filename, data, width, height);
 
     //if there's an error, display it
     if(error) std::cout << "encoder error " << error << ": "<< lodepng_error_text(error) << std::endl;
@@ -36,7 +36,7 @@ void Image::write(std::string filename) const {
 
 uint8_t* Image::at(int x, int y) {
     // TODO: Return a pointer to a pixel in the data vector
-    return &data[0] + 4 * (y * width + x);;
+    return &data[0] + 4 * (y * width + x);
 }
 
 Image Image::operator*(const Filter& filter) {
@@ -59,7 +59,7 @@ Image Image::operator*(const Filter& filter) {
         }
 
         for (int k = 0; k < 4; ++k) {
-            new_image.at(x,y)[k] = temp[k];
+            newImg.at(x,y)[k] = temp[k];
             }
         }
     }

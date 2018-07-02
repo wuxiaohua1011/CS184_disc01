@@ -41,9 +41,10 @@ int main(int argc, char* argv[]) {
         cout << "Usage: ./convolve img.png filter.filt" << endl;
         return 0;
     }
-
     Image image(argv[1]);
+      cout << "initizliation success" << endl;
     Filter filter(argv[2]);
+
     Image filtered = image * filter;
     filtered.write("filtered.png");
 
